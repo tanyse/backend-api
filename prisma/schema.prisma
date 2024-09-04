@@ -22,8 +22,8 @@ model Usuario {
 model Equipamentos {
   id          Int      @id @default(autoincrement())
   descricao   String
-  servicos_id Int
-  servico     Servicos @relation(fields: [servicos_id], references: [id])
+  servicos_id Int?
+  servico     Servicos? @relation(fields: [servicos_id], references: [id])
 
   @@map("equipamentos")
 }
