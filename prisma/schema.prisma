@@ -16,14 +16,23 @@ datasource db {
 model Usuario {
   nome String @unique
 
+  @@map("usuarios")
 }
 
 model Equipamentos {
-  id        Int @id @default(autoincrement())
-  descricao String
+  id          Int      @id @default(autoincrement())
+  descricao   String
+  servicos_id Int
+  servico     Servicos @relation(fields: [servicos_id], references: [id])
+
+  @@map("equipamentos")
 }
 
 model Servicos {
-  id      Int @id @default(autoincrement())
+  id      Int    @id @default(autoincrement())
   servico String
+
+  Equipamentos Equipamentos[]
+
+  @@map("servicos")
 }
