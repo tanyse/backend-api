@@ -14,25 +14,67 @@ datasource db {
 }
 
 model Usuario {
+  id Int @id @default(autoincrement())
   nome String @unique
+
+  solicitados EquipamentoUsuario[]
+  servicos Servico[]
+  despesas Despesa[]
 
   @@map("usuarios")
 }
 
-model Equipamentos {
+model Equipamento {
   id          Int      @id @default(autoincrement())
   descricao   String
-  servicos_id Int?
-  servico     Servicos? @relation(fields: [servicos_id], references: [id])
+  valor_de_compra Float
+  data_compra DateTime
+  
+  solicitados EquipamentoUsuario[]
 
   @@map("equipamentos")
 }
 
-model Servicos {
+model Servico {
   id      Int    @id @default(autoincrement())
   servico String
-
-  Equipamentos Equipamentos[]
+  id_usuario Int
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
 
   @@map("servicos")
+}
+
+model EquipamentoUsuario {
+  id Int @id @default(autoincrement())
+  id_equipamento Int
+  equipamento Equipamento @relation(fields: [id_equipamento], references: [id])
+  id_usuario Int 
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
+
+  @@map("solicitados")
+}
+
+model Despesa {
+  id Int @id @default(autoincrement())
+  valor Float
+  descricao String
+  id_usuario Int
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  id_tipo_despesa Int
+  tipoDespesa TipoDespesa @relation(fields: [id_tipo_despesa], references: [id])
+
+  @@map("despesas")
+}
+
+model TipoDespesa {
+  id Int @id @default(autoincrement())
+  descricao String
+
+  despesas Despesa[]
+}
+
+model Estoque {
+  id Int @id @default(autoincrement())
+
+  @@map("estoque")
 }

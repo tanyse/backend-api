@@ -8,7 +8,7 @@ export class EquipamentosService {
   constructor(private readonly prisma: PrismaService) {}
 
   create(data: CreateEquipamentoDto) {
-    return this.prisma.equipamentos.create({ data })
+    return this.prisma.equipamentos.create({ data });
   }
 
   findAll() {

@@ -1,6 +1,3 @@
-import { Prisma } from '@prisma/client';
-
-export class CreateEquipamentoDto implements Prisma.EquipamentosCreateInput {
+export class CreateEquipamentoDto {
   descricao: string;
-  servico?: Prisma.ServicosCreateNestedOneWithoutEquipamentosInput;
 }
