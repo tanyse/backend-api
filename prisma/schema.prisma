@@ -13,68 +13,70 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Usuario {
-  id Int @id @default(autoincrement())
+model Colaboradores {
+  id   Int    @id @default(autoincrement())
   nome String @unique
 
   solicitados EquipamentoUsuario[]
-  servicos Servico[]
-  despesas Despesa[]
+  servicos    Servicos[]
+  despesas    Despesa[]
 
-  @@map("usuarios")
+  @@map("colaboradores")
 }
 
-model Equipamento {
-  id          Int      @id @default(autoincrement())
-  descricao   String
+model Equipamentos {
+  id              Int      @id @default(autoincrement())
+  descricao       String
   valor_de_compra Float
-  data_compra DateTime
-  
+  data_compra     DateTime
+
   solicitados EquipamentoUsuario[]
 
   @@map("equipamentos")
 }
 
-model Servico {
-  id      Int    @id @default(autoincrement())
-  servico String
-  id_usuario Int
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+model Servicos {
+  id         Int            @id @default(autoincrement())
+  servico    String
+  id_usuario Int?
+  usuario    Colaboradores? @relation(fields: [id_usuario], references: [id])
 
   @@map("servicos")
 }
 
 model EquipamentoUsuario {
-  id Int @id @default(autoincrement())
+  id             Int           @id @default(autoincrement())
   id_equipamento Int
-  equipamento Equipamento @relation(fields: [id_equipamento], references: [id])
-  id_usuario Int 
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  equipamento    Equipamentos  @relation(fields: [id_equipamento], references: [id])
+  id_usuario     Int
+  usuario        Colaboradores @relation(fields: [id_usuario], references: [id])
 
   @@map("solicitados")
 }
 
 model Despesa {
-  id Int @id @default(autoincrement())
-  valor Float
-  descricao String
-  id_usuario Int
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  id              Int           @id @default(autoincrement())
+  valor           Float
+  descricao       String
+  id_usuario      Int
+  usuario         Colaboradores @relation(fields: [id_usuario], references: [id])
   id_tipo_despesa Int
-  tipoDespesa TipoDespesa @relation(fields: [id_tipo_despesa], references: [id])
+  tipoDespesa     TipoDespesa   @relation(fields: [id_tipo_despesa], references: [id])
 
   @@map("despesas")
 }
 
 model TipoDespesa {
-  id Int @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   descricao String
 
   despesas Despesa[]
 }
 
 model Estoque {
-  id Int @id @default(autoincrement())
+  id           Int    @id @default(autoincrement())
+  equipamentos String
+  quantidade   Int
 
   @@map("estoque")
 }

@@ -16,14 +16,21 @@ export class EquipamentosService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} equipamento`;
+    return this.prisma.equipamentos.findUnique({
+      where: { id },
+    });
   }
 
-  update(id: number, updateEquipamentoDto: UpdateEquipamentoDto) {
-    return `This action updates a #${id} equipamento`;
+  update(id: number, data: UpdateEquipamentoDto) {
+    return this.prisma.equipamentos.update({
+      where: { id },
+      data,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} equipamento`;
+    return this.prisma.equipamentos.delete({
+      where: { id },
+    });
   }
 }
