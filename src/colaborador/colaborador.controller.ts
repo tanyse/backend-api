@@ -30,7 +30,7 @@ export class ColaboradorController {
     return this.colaboradorService.findOne(+id);
   }
 
-  @Patch('Atualizar/:id')
+  @Patch('atualizar/:id')
   update(
     @Param('id') id: string,
     @Body() updateColaboradorDto: UpdateColaboradorDto,
