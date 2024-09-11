@@ -20,7 +20,8 @@ model Colaborador {
   telefone        String
   cpf             String @unique
   genero          String
-
+  cargo           String
+  funcao          String
   endereco    Endereco[]
   solicitados EquipamentoUsuario[]
   servicos    Servicos[]
