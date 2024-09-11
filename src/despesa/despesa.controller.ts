@@ -15,27 +15,27 @@ import { UpdateDespesaDto } from './dto/update-despesa.dto';
 export class DespesaController {
   constructor(private readonly despesaService: DespesaService) {}
 
-  @Post()
+  @Post('adicionar')
   create(@Body() createDespesaDto: CreateDespesaDto) {
     return this.despesaService.create(createDespesaDto);
   }
 
-  @Get()
+  @Get('listar')
   findAll() {
     return this.despesaService.findAll();
   }
 
-  @Get(':id')
+  @Get('buscarId/:id')
   findOne(@Param('id') id: string) {
     return this.despesaService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('atualizar:id')
   update(@Param('id') id: string, @Body() updateDespesaDto: UpdateDespesaDto) {
     return this.despesaService.update(+id, updateDespesaDto);
   }
 
-  @Delete(':id')
+  @Delete('excluir/:id')
   remove(@Param('id') id: string) {
     return this.despesaService.remove(+id);
   }

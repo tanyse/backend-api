@@ -6,6 +6,7 @@ import { EstoqueModule } from './estoque/estoque.module';
 import { DespesaModule } from './despesa/despesa.module';
 import { ServicosModule } from './servicos/servicos.module';
 import { ColaboradorModule } from './colaborador/colaborador.module';
+import { EnderecoModule } from './endereco/endereco.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { ColaboradorModule } from './colaborador/colaborador.module';
     DespesaModule,
     ServicosModule,
     ColaboradorModule,
+    EnderecoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

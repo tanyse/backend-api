@@ -15,22 +15,22 @@ import { UpdateColaboradorDto } from './dto/update-colaborador.dto';
 export class ColaboradorController {
   constructor(private readonly colaboradorService: ColaboradorService) {}
 
-  @Post()
+  @Post('adicionar')
   create(@Body() createColaboradorDto: CreateColaboradorDto) {
     return this.colaboradorService.create(createColaboradorDto);
   }
 
-  @Get()
+  @Get('listar')
   findAll() {
     return this.colaboradorService.findAll();
   }
 
-  @Get(':id')
+  @Get('buscarId/:id')
   findOne(@Param('id') id: string) {
     return this.colaboradorService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('atualizar/:id')
   update(
     @Param('id') id: string,
     @Body() updateColaboradorDto: UpdateColaboradorDto,
@@ -38,7 +38,7 @@ export class ColaboradorController {
     return this.colaboradorService.update(+id, updateColaboradorDto);
   }
 
-  @Delete(':id')
+  @Delete('excluir/:id')
   remove(@Param('id') id: string) {
     return this.colaboradorService.remove(+id);
   }

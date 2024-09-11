@@ -30,7 +30,7 @@ export class EquipamentosController {
     return this.equipamentosService.findOne(+id);
   }
 
-  @Patch('alterar/:id')
+  @Patch('atualizar/:id')
   update(
     @Param('id') id: string,
     @Body() updateEquipamentoDto: UpdateEquipamentoDto,
