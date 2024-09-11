@@ -14,5 +14,9 @@ export class CreateColaboradorDto extends Colaborador {
   cpf: string;
   @IsString()
   genero: string;
+  @IsString()
+  cargo: string;
+  @IsString()
+  funcao: string;
   endereco?: Prisma.EnderecoUncheckedCreateNestedManyWithoutUsuarioInput;
 }

@@ -7,5 +7,8 @@ export class Colaborador implements Prisma.ColaboradorUncheckedCreateInput {
   telefone: string;
   cpf: string;
   genero: string;
+  cargo: string;
+  funcao: string;
+  quantidadeEquipamento: string;
   endereco?: Prisma.EnderecoUncheckedCreateNestedManyWithoutUsuarioInput;
 }
