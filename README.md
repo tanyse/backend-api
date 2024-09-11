@@ -14,14 +14,19 @@ Descrição
 Este projeto é o backend do sistema de HelpDesk, responsável pela lógica de negócios e comunicação com o banco de dados. Foi desenvolvido utilizando o NestJS, um framework progressivo para construção de aplicativos do lado do servidor eficientes e escaláveis.
 
 Funcionalidades
+
 API RESTful: Endpoints para gerenciar colaboradores, estoque, despesas e serviços.
 Autenticação e Autorização: Suporte para autenticação de usuários e controle de permissões.
 Validação de Dados: Valida a integridade e o formato dos dados recebidos.
 Conexão com o Banco de Dados: Comunicação eficiente com o banco de dados para operações CRUD.
 Tecnologias Utilizadas
+
 Framework: NestJS
+
 Linguagem: TypeScript
-Banco de Dados: (Especificar o banco de dados utilizado, ex: MongoDB, PostgreSQL)
+
+Banco de Dados: MySQL
+
 Bibliotecas: (ex. TypeORM, Mongoose, bcrypt, jsonwebtoken)
 Instalação
 Clone este repositório:
