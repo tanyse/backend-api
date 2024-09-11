@@ -2,6 +2,7 @@ import { Equipamento } from '../entities/equipamento.entity';
 import { IsDateString, IsNumber, IsString } from 'class-validator';
 
 export class CreateEquipamentoDto extends Equipamento {
+  id?: number;
   @IsString()
   descricao: string;
   @IsNumber()
