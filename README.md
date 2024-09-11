@@ -27,28 +27,35 @@ Linguagem: TypeScript
 
 Banco de Dados: MySQL
 
-Bibliotecas: (ex. TypeORM, Mongoose, bcrypt, jsonwebtoken)
 Instalação
+
 Clone este repositório:
 bash
+
 Copiar código
 git clone [https://github.com/seu-usuario/helpdesk-backend.git](https://github.com/tanyse/backend-api/edit/main/README.md)
+
 Acesse o diretório do projeto:
 bash
+
 Copiar código
 cd backend-api
+
 Instale as dependências:
 bash
+
 Copiar código
 npm install
-Configuração
-Crie um arquivo .env na raiz do projeto e adicione as variáveis de ambiente necessárias, como:
 
+Configuração
+
+Crie um arquivo .env na raiz do projeto e adicione as variáveis de ambiente necessárias, como:
 makefile
 Copiar código
 DATABASE_URL=your-database-url
 JWT_SECRET=your-jwt-secret
 PORT=3000
+
 Scripts Disponíveis
 start: Executa o servidor em modo de produção.
 start:dev: Executa o servidor em modo de desenvolvimento com hot-reload.
@@ -56,8 +63,10 @@ start:prod: Compila e executa o servidor em modo de produção.
 test: Executa testes unitários.
 test:e2e: Executa testes de ponta a ponta (e2e).
 test:cov: Gera um relatório de cobertura de testes.
+
 Estrutura de Diretórios
 plaintext
+
 Copiar código
 src/
 |-- app.module.ts
@@ -73,25 +82,28 @@ src/
 |   |-- interceptors/
 |-- config/
 |-- ...
+
 Endpoints da API
+
 Autenticação
 POST /auth/login - Autentica um usuário.
 POST /auth/register - Registra um novo usuário.
+
 Colaboradores
 GET /users - Retorna a lista de colaboradores.
 POST /users - Adiciona um novo colaborador.
+
 Estoque
 GET /inventory - Retorna a lista de itens do estoque.
 POST /inventory - Adiciona um novo item ao estoque.
+
 Despesas
 GET /expenses - Lista todas as despesas.
 POST /expenses - Adiciona uma nova despesa.
+
 Serviços
 GET /services - Retorna a lista de serviços.
 POST /services - Cria um novo serviço.
-Recursos Adicionais
-Documentação do NestJS
-Canal do Discord do NestJS
-Suporte Enterprise do NestJS
+
 Licença
 Este projeto é licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
