@@ -95,7 +95,7 @@ model TipoDespesa {
 
 model Estoque {
   id           Int    @id @default(autoincrement())
-  equipamentos String
+  equipamento String
   quantidade   Int
 
   @@map("estoque")

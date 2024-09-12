@@ -4,7 +4,7 @@ import { Estoque } from '../entities/estoque.entity';
 export class CreateEstoqueDto extends Estoque {
   id?: number;
   @IsString()
-  equipamentos: string;
+  equipamento: string;
   @IsNumber()
   quantidade: number;
 }
