@@ -60,6 +60,8 @@ model Servicos {
   servico    String
   id_usuario Int?
   usuario    Colaborador? @relation(fields: [id_usuario], references: [id])
+  id_Status Int
+  statuServico     statusServico @relation(fields: [id_Status], references: [id])
 
   @@map("servicos")
 }
@@ -100,3 +102,13 @@ model Estoque {
 
   @@map("estoque")
 }
+
+model statusServico {
+  id           Int    @id @default(autoincrement())
+  status String
+  servico Servicos[]
+
+  @@map("statusServico")
+}
+
+
