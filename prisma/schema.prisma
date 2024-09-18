@@ -57,7 +57,10 @@ model Equipamentos {
 
 model Servicos {
   id         Int          @id @default(autoincrement())
-  servico    String
+  descricao  String
+  equipamento String
+  dtabertura DateTime
+  dtfechamento DateTime?
   id_usuario Int?
   usuario    Colaborador? @relation(fields: [id_usuario], references: [id])
   id_Status Int
